@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natasha Chatbot</title>
+  <meta name="description" content="Natasha is an advanced virtual assistant powered by voice commands, interactive chat, and smart automation. Designed with a hacker-style animated UI, she responds with custom audio, performs quick tasks like astrology queries, PDF exports, theme switching, and page navigation — all through voice or button commands. Fully responsive, lightweight, and offline-ready, Natasha is your all-in-one web assistant.
+
+">
+  <meta name="keywords" content="chatbot">
+  <meta name="subject" content="AI">
+  <meta name="copyright" content="HarshTech Organization">
+  <meta name="language" content="English">
+  <meta name="robots" content="index,follow">
+  <meta name="revised" content="saturday,July 4th,2025,8:45 pm">
+  <meta name="abstract" content="HarshTech  specializes in the software Development field.">
+  <meta name="topic" content="Software Development">
+  <meta name="summary" content="HarshTech Provides innovative technology solutions for business">
+  <meta name="classification" content="business">
+  <meta name="author" content="Harshad Teli">
+  <meta name="author" content="harshadteli697@gmail.com">
+  <meta name="designer" content="Harshad Teli">
+  <meta name="reply-to" content="harshtech417@gmail.com">
+  <meta name="owner" content="Harshad Teli">
+  <meta name="directory" content="Technology">
+  <meta name="pagename" content="HarshTech Organization feedback form">
+  <meta name="category" content="Web Development">
+  <meta name="coverage" content="Worldwide">
+  <meta name="distribution" content="Global">
+<link rel="stylesheet" href="./assets/CSS/style.css">
+<link rel="shortcut icon" href="./assets/IMAGES/Natasha.jpg" type="image/x-icon">
+</head>
+
+<body>
+  <div class="popup-bar" id="popup">
+    <img src="./assets/IMAGES/Natasha.jpg" alt="Assistant">
+    <div class="typing-text" id="typedText">[System] Initializing Assistant Protocol...</div>
+  </div>
+  <script>
+    // Auto-hide popup after 4 seconds
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('popup').style.display = 'none';
+      }, 4000);
+    });
+  </script>
+  <div id="statusPopup" class="typing-effect"></div>
+  <canvas id="matrixCanvas"></canvas>
+
+  <div class="content">
+    <h1>Welcome To Natasha Chatbot</h1>
+    <form id="nameForm">
+      <input type="text" id="username" placeholder="Enter Your Name" required />
+      <br />
+      <button type="submit">Let's Start</button><br><br>
+      <center><img src="./assets/IMAGES/intro.gif" style="border-radius: 100%;" height="120px" width="auto" alt="E404">
+      </center>
+    </form>
+
+    <div class="chatbox" id="chatBox">
+      <img src="./assets/IMAGES/Natasha.jpg" alt="E404" class="avatar" />
+      <p id="message" class="typewriter"></p>
+      <div class="spinner" id="spinner"></div>
+    </div>
+  </div>
+  <audio id="typingSound" src="./assets/AI Technology Server/1.mp3" preload="auto"></audio>
+
+  <script src="./assets/JS/script.js"></script>
+  <script src="./assets/JS/prevent.js"></script>
+  <script src="./assets/JS/internet.js"></script>
+</body>
+
+</html>
