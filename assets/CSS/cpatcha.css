@@ -1,0 +1,138 @@
+ body{
+            background-color: black;
+        }
+.captcha-container {
+    width: 80%;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #0f0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    background-color: #000;
+    color: #0f0;
+}
+
+#captcha-text {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#result {
+    color: #f00;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+#result img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+
+
+.captcha-container {
+    width: 80%;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #0f0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    background-color: #000;
+    color: #0f0;
+}
+
+#captcha-text {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+#result {
+    color: #f00;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+#result img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+#captcha-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #0f0;
+    background-color: #111;
+    color: #0f0;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+#submit-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    background-color: #0f0;
+    color: #000;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+#submit-btn:hover {
+    background-color: #00ff00;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 1);
+}
+ .popup-bar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #000;
+      color: #33ff33;
+      display: flex;
+      align-items: center;
+      padding: 8px 16px;
+      z-index: 1000;
+      border-bottom: 1px solid #33ff33;
+      box-shadow: 0 4px 8px rgba(0,255,0,0.2);
+    }
+
+    .popup-bar img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .typing-text {
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #33ff33;
+      animation: typing 3s steps(40, end), blink 0.7s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    @media (max-width: 600px) {
+      .popup-bar {
+        font-size: 14px;
+        padding: 6px 12px;
+      }
+
+      .popup-bar img {
+        width: 25px;
+        height: 25px;
+      }
+    }

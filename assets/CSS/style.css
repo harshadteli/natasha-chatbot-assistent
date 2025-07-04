@@ -1,0 +1,210 @@
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      background: black;
+      font-family: 'Courier New', Courier, monospace;
+      color: #00ff00;
+      overflow: hidden;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      animation: glitch 1.5s infinite;
+    }
+
+    form {
+      margin-bottom: 30px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 1rem;
+      background-color: black;
+      border: 2px solid #00ff00;
+      color: #00ff00;
+      width: 80%;
+      max-width: 300px;
+      margin-bottom: 10px;
+      transition: transform 0.2s ease;
+    }
+
+    input.shake {
+      animation: shake 0.3s;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #00ff00;
+      border: none;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .chatbox {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border: 1px solid #00ff00;
+      box-shadow: 0 0 10px #00ff00;
+      max-width: 500px;
+      width: 90%;
+      display: none;
+      position: relative;
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 2px solid #00ff00;
+      animation: blinkEye 2s infinite;
+      margin: 0 auto 15px;
+      box-shadow: 0 0 10px #00ff00;
+    }
+
+    @keyframes blinkEye {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(2.5); }
+    }
+
+    .typewriter {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #00ff00;
+      animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    .alert {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #ff0000;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-family: monospace;
+      font-weight: bold;
+      z-index: 9999;
+      box-shadow: 0 0 10px red;
+      animation: fadeOut 3s forwards;
+    }
+
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; transform: translateY(-20px); }
+    }
+
+    .spinner {
+      border: 4px solid #333;
+      border-top: 4px solid #00ff00;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto 0;
+      display: none;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Glitch effect */
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 red, -2px 0 blue; }
+      25% { text-shadow: -2px -2px red, 2px 2px blue; }
+      50% { text-shadow: 2px -2px red, -2px 2px blue; }
+      75% { text-shadow: -1px 1px red, 1px -1px blue; }
+      100% { text-shadow: 2px 0 red, -2px 0 blue; }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5rem; }
+      input, button { font-size: 0.9rem; }
+      .avatar { width: 70px; height: 70px; }
+    }
+    .popup-bar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #000;
+      color: #33ff33;
+      display: flex;
+      align-items: center;
+      padding: 8px 16px;
+      z-index: 1000;
+      border-bottom: 1px solid #33ff33;
+      box-shadow: 0 4px 8px rgba(0,255,0,0.2);
+    }
+
+    .popup-bar img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .typing-text {
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #33ff33;
+      animation: typing 3s steps(40, end), blink 0.7s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    @media (max-width: 600px) {
+      .popup-bar {
+        font-size: 14px;
+        padding: 6px 12px;
+      }
+
+      .popup-bar img {
+        width: 25px;
+        height: 25px;
+      }
+    }

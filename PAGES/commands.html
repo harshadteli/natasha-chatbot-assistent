@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Natasha Chatbot - Command List</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link rel="shortcut icon" href="./assets/IMAGES/Natasha.jpg" type="image/x-icon">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00ffcc;
+      margin-bottom: 20px;
+    }
+
+    .command-box {
+      background: #1a1a1a;
+      padding: 15px 20px;
+      border-left: 5px solid #00ffcc;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      transition: 0.3s ease;
+    }
+
+    .command-box:hover {
+      background: #292929;
+    }
+
+    .export-btn {
+      display: block;
+      margin: 30px auto;
+      padding: 10px 20px;
+      background-color: #00ffcc;
+      border: none;
+      color: #000;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .export-btn:hover {
+      background-color: #00e6b8;
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 24px;
+      }
+      .command-box {
+        font-size: 14px;
+      }
+    }
+    .popup-bar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #000;
+      color: #33ff33;
+      display: flex;
+      align-items: center;
+      padding: 8px 16px;
+      z-index: 1000;
+      border-bottom: 1px solid #33ff33;
+      box-shadow: 0 4px 8px rgba(0,255,0,0.2);
+    }
+
+    .popup-bar img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .typing-text {
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #33ff33;
+      animation: typing 3s steps(40, end), blink 0.7s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    @media (max-width: 600px) {
+      .popup-bar {
+        font-size: 14px;
+        padding: 6px 12px;
+      }
+
+      .popup-bar img {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+     <div class="popup-bar" id="popup">
+    <img src="../assets/IMAGES/Natasha.jpg" alt="Assistant">
+    <div class="typing-text" id="typedText">Please read out the carefully and try it</div>
+  </div>
+  <script>
+     // Auto-hide popup after 4 seconds
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('popup').style.display = 'none';
+      }, 4000);
+    });
+  </script>
+  <h1>🧠 Natasha Chatbot - Command List</h1>
+
+  <div class="command-box">💬 "Hello" - Start interaction</div>
+  <div class="command-box">🏢 "About HarshTech" - To know about the HarshTech Organization.</div>
+  <div class="command-box">👨‍💻 "Developer" -Know about the developer</div>
+  <div class="command-box">📩 "portfolio" - Knowing about the user with there profession. </div>
+  <div class="command-box">🤣 "joke" - Enjoy the joke.</div>
+  <div class="command-box">😍 "Trending Song" - know about the Trending song.</div>
+  <div class="command-box">🌓 "Switch theme" - Toggle light/dark theme</div>
+  <div class="command-box">🔇 "Mute Natasha" / "Unmute Natasha"</div>
+  <div class="command-box">🤖 "Music assistant" - Guide for playing the Music.</div>
+  <div class="command-box">🏆 "Motivation" - Guide for motivation by some famous motivation speakers.</div>
+  <div class="command-box">📜 "Export chat" - Exportthe chat history</div>
+  <div class="command-box">⚙️ "Web tools" - This is the proversion of the project so it is access by through login page</div>
+  <div class="command-box">🤹 "skills Learning" - This is the proversion of the project so it is access by through login page.</div>
+  <div class="command-box">⚠️ "Bugs Report" - To know about the Bugs in the programming.</div>
+  <div class="command-box">☁️ "Weather" - To know about the Weather.</div>
+  <div class="command-box">⏰ "Time" - To know about the time.</div>
+  <div class="command-box">📆 "date" - To know about the date </div>
+  <div class="command-box">📰 "news" - To know about the latest news from the different platformms.</div>
+  <div class="command-box">➕ "Calculator" - To make the simple operation by this calci.</div>
+  <div class="command-box">📃 "Task Manager" - To make your day to day life your task list with the advanced AI powered Technology.</div>
+
+  <button class="export-btn" onclick="exportPDF()">📥 Export Commands as PDF</button>
+
+  <script>
+    async function exportPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      const title = 'Natasha Chatbot - Command List';
+      const date = new Date().toLocaleString();
+      const commands = [
+      ' "Hello" - Start interaction',
+ ' "About HarshTech" - To know about the HarshTech Organization.',
+ ' "Developer" -Know about the developer',
+  '"portfolio" - Knowing about the user with there profession. ',
+ ' "joke" - Enjoy the joke.',
+ '"Trending Song" - know about the Trending song.',
+ '"Switch theme" - Toggle light/dark theme',
+ ' "Music assistant" - Guide for playing the Music.',
+ '"Motivation" - Guide for motivation by some famous motivation speakers.',
+  '"Export chat" - Exportthe chat history',
+  '"Web tools" - This is the proversion of the project so it is access by through login page',
+ ' "skills Learning" - This is the proversion of the project so it is access by through login page.',
+  '"Bugs Report" - To know about the Bugs in the programming.',
+ '"Weather" - To know about the Weather.',
+ '"Time" - To know about the time.',
+ ' "date" - To know about the date ',
+ '"news" - To know about the latest news from the different platformms.',
+' "Calculator" - To make the simple operation by this calci.',
+' "Task Manager" - To make your day to day life your task list with the advanced AI powered Technology.'
+      ];
+
+      doc.setFontSize(16);
+      doc.setTextColor(0, 255, 204);
+      doc.text(title, 20, 20);
+      doc.setFontSize(10);
+      doc.setTextColor(100);
+      doc.text(`Exported on: ${date}`, 20, 28);
+
+      doc.setFontSize(12);
+      doc.setTextColor(0);
+      commands.forEach((cmd, i) => {
+        doc.text(`• ${cmd}`, 20, 40 + i * 10);
+      });
+
+      // Convert to blob for both preview and download
+      const pdfBlob = doc.output("blob");
+      const pdfUrl = URL.createObjectURL(pdfBlob);
+
+      // Open PDF in new tab
+      window.open(pdfUrl, "_blank");
+
+      // Also trigger automatic download
+      const link = document.createElement("a");
+      link.href = pdfUrl;
+      link.download = "natasha_chatbot_commands.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      // Optional: play audio feedback
+      const audio = new Audio("https://www.soundjay.com/buttons/sounds/button-29.mp3");
+      audio.play();
+    }
+  </script>
+  <script src="../assets/JS/prevent.js"></script>
+</body>
+</html>

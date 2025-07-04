@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natasha Chatbot</title>
+    <link rel="stylesheet" href="../assets/CSS/cpatcha.css">
+    <link rel="shortcut icon" href="./assets/IMAGES/Natasha.jpg" type="image/x-icon">
+</head>
+<body>
+     <div class="popup-bar" id="popup">
+    <img src="../assets/IMAGES/Natasha.jpg" alt="Assistant">
+    <div class="typing-text" id="typedText">Please enter the correct captcha for further processing</div>
+  </div>
+  <script>
+     // Auto-hide popup after 4 seconds
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('popup').style.display = 'none';
+      }, 4000);
+    });
+  </script>
+    <div id="statusPopup" class="typing-effect"></div>
+    <div class="captcha-container">
+        <h2>Verifying you're human ,Please enter the text below</h2>
+        <p id="captcha-text"></p>
+        <input type="text" id="captcha-input" placeholder="Enter captcha"><br><br>
+        <button id="submit-btn">Submit</button>
+        <div id="result"></div>
+    </div>
+    <audio id="audio" src="../assets/AI Technology Server/3.mp3" preload="auto"></audio>
+    <audio id="wrong" src="../assets/AI Technology Server/unsuccessful.mp3" preload="auto"></audio><br>
+     <center><img src="../assets/IMAGES/loading.gif" height="120px" width="auto" alt="E404"></center>
+    <script src="../assets/JS/captcha.js"></script>
+    <script src="../assets/JS/prevent.js"></script>
+       <script src="./assets/JS/internet.js"></script>
+</body>
+</html>
+

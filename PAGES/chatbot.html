@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Natasha Chatbot</title>
+  <link rel="stylesheet" href="../assets/CSS/chatbot.css">
+  <link rel="shortcut icon" href="../assets/IMAGES/Natasha.jpg" type="image/x-icon">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<style>
+    .popup-bar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #000;
+      color: #33ff33;
+      display: flex;
+      align-items: center;
+      padding: 8px 16px;
+      z-index: 1000;
+      border-bottom: 1px solid #33ff33;
+      box-shadow: 0 4px 8px rgba(0,255,0,0.2);
+    }
+
+    .popup-bar img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .typing-text {
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #33ff33;
+      animation: typing 3s steps(40, end), blink 0.7s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    @media (max-width: 600px) {
+      .popup-bar {
+        font-size: 14px;
+        padding: 6px 12px;
+      }
+
+      .popup-bar img {
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+</style>
+<body>
+    <div class="popup-bar" id="popup">
+    <img src="../assets/IMAGES/Natasha.jpg" alt="Assistant">
+    <div class="typing-text" id="typedText">Please re-enter your Name</div>
+  </div>
+  <script>
+     // Auto-hide popup after 4 seconds
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('popup').style.display = 'none';
+      }, 4000);
+    });
+  </script>
+  <div id="statusPopup" class="typing-effect"></div>
+ <script src="../assets/JS/internet.js"></script>
+  <!-- <img src="blank" id="popupImage"/> -->
+
+  <script>
+     function showImage() {
+      const isDark = document.body.classList.contains("dark-mode");
+      const image = document.getElementById("popupImage");
+      const dotWave = document.getElementById("dotWave");
+
+      // Hide both
+      image.style.display = "none";
+      dotWave.style.display = "none";
+
+      if (isDark) {
+        image.style.display = "block";
+        setTimeout(() => {
+          image.style.display = "none";
+        }, 5000);
+      } else {
+        dotWave.style.display = "flex";
+        setTimeout(() => {
+          dotWave.style.display = "none";
+        }, 5000);
+      }
+     }
+
+
+  </script>
+  <audio id="chata" src="../assets/AI Technology Server/intro.mp3" preload="auto"></audio>
+   <img src="./assets/IMAGES/Natasha.jpg" id="bot-avatar" style="display: none;">
+
+  <!-- NAME INPUT SCREEN -->
+  <div class="center" id="name-section">
+    <h1>Please re-enter Your Name</h1>
+    <form id="chatForm">
+      <input type="text" id="username" placeholder="Enter your name..." required />
+      <br>
+      <button id="chatbtn" type="submit">Let's Chat</button>
+    </form>
+    <div id="alertBox"></div>
+  </div>
+
+  <!-- CHAT INTERFACE -->
+  <div class="chat-container" id="chat-container" style="display:none;">
+    <div class="controls">
+      <button id="theme-toggle">🌓 Theme</button>
+      <button id="mute-toggle">🔊 Mute</button>
+      <button id="export-pdf">📁 Export PDF</button>
+      <button id="commands">📁 Commands List</button>
+      <button id="harshtech"> About HarshTech</button>
+    </div>
+
+    <div class="suggested-commands">
+      <button class="suggest-btn"> 😊 Hello</button>
+      <button class="suggest-btn">help</button>
+      <button class="suggest-btn">👨‍💻 Developer</button>
+      <button class="suggest-btn">🤣 joke</button>
+      <button class="suggest-btn">😍 Trending Song</button>
+      <button class="suggest-btn">🤖 Music Assistent</button>
+      <button class="suggest-btn">🥇 Motivation</button>
+      <button class="suggest-btn">⚙️ Web Tools</button>
+      <button class="suggest-btn">🤹 Skills Learning</button>
+      <button class="suggest-btn">🧑‍🚀 Virtual Assistents</button>
+      <button class="suggest-btn">⚠️ Bugs Report</button>
+    </div>
+
+    <center><img src="../assets/IMAGES/voice.gif" height="120px" width="auto" alt="E404"></center>
+
+    <input type="text" id="user-input" placeholder="Enter command..." />
+    <button onclick="showImage()" id="submit-btn">Submit</button>
+
+    <div id="chat-log"></div>
+
+    <!-- Audio -->
+    <audio id="audio-hello" src="../assets/AI Technology Server/9.mp3" preload="auto"></audio>
+    <audio id="bugs" src="../assets/AI Technology Server/d15.mp3" preload="auto"></audio>
+    <audio id="audio-help" src="../assets/AI Technology Server/d10.mp3" preload="auto"></audio>
+    <audio id="audio-about" src="../assets/AI Technology Server/d11.mp3" preload="auto"></audio>
+    <audio id="audio-joke" src="../assets/AI Technology Server/d14.mp3" preload="auto"></audio>
+    <audio id="audio-error" src="../assets/AI Technology Server/defaults.mp3" preload="auto"></audio>
+    <audio id="themeaud" src="../assets/AI Technology Server/5.mp3" preload="auto"></audio>
+    <audio id="muteaud" src="../assets/AI Technology Server/6.mp3" preload="auto"></audio>
+    <audio id="pdfaud" src="../assets/AI Technology Server/7.mp3" preload="auto"></audio>
+    <audio id="commandsaud" src="../assets/AI Technology Server/8.mp3" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/d12.mp3" id="harshtechaud" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/b3.mp3" id="one-more" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/not.mp3" id="not" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/d16.mp3" id="tools" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/Running.mp3" id="run" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/Webpage.mp3" id="webpage" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/portfolio.mp3" id="portfolio" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/J1.mp3" id="languageofjoke" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/mj1.mp3" id="marathijoke1" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/mj2.mp3" id="marathijoke2" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/shaky.mp3" id="shakysong" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/motivations/mfirst.mp3" id="motivate" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/motivations/mtime.mp3" id="timemotivation" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/motivations/intromassistent.mp3" id="intromassistent" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/motivations/Instructions.mp3" id="guide" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/music-assistent/1.MP3" id="intromusicassistent" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/music-assistent/2.MP3" id="musicoptions" preload="auto"></audio>
+   <audio src="../assets//AI Technology Server/music-assistent/musicintro.MP3" id="musicintro" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/music-assistent/love1.MP3" id="love1song" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/music-assistent/love2.MP3" id="love2song" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/music-assistent/radhe.MP3" id="radhe" preload="auto"></audio>
+   <audio src="../assets/AI Technology Server/music-assistent/motivation.MP3" id="motivation" preload="auto"></audio>
+    
+  </div>
+
+  
+
+  <script>
+   const harshtech = document.getElementById("harshtech");
+   const harshtechaud = document.getElementById("harshtechaud");
+   harshtech.addEventListener("click" , () => {
+    harshtechaud.play();
+    setTimeout( () => {
+
+    } , harshtechaud.duration * 1000);
+   });
+   
+  </script>
+  <script src="../assets/JS/chatbot.js"></script>
+  <script src="../assets/JS/prevent.js"></script>
+   <center><small><font color="white">&copy; 2025 HarshTech Organization | All rights reserved</font></small></center>
+</body>
+</html>
