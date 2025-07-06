@@ -101,7 +101,7 @@ Mute / Unmute Toggles assistant voice
 
 ## 📲 Deploy Project
 
-[![Live](https://img.shields.io/badge/Live-Demo-green?style=for-the-badge&logo=vercel)](https://harshadteli.github.io/natashachatbotassistent/)
+[![Live](https://img.shields.io/badge/Live-Demo-green?style=for-the-badge&logo=vercel)](https://harshadteli.github.io/natasha-chatbot-assistent/)
 
 ---
 
